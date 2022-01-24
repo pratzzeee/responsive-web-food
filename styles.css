@@ -1,0 +1,198 @@
+/*All the rem values assigned here are considered assuming the Default font size of the browser
+would be 16px*/
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;/*To remove any margin around the body*/
+    background-color: rgb(44, 41, 38);
+}
+
+a {
+    text-decoration: none; 
+}
+
+#main-header {
+    height: 5rem; /*we generally use padding to maintain size but here we are using height,
+    we are setting a dynamic unit so that it satisfies user requirement (5rem=5*users sets his own font*/
+    display: flex; /*to arrange the items inside elemets (flex : 2 different elemets)*/
+    justify-content: space-between; /*we use this to add space between 2 diff elements*/
+    align-items: center; /*bringing elements to a center */
+    background-color: rgb(29, 26, 24);
+    padding: 0 5%; /*we add this to create some space so that our elements(nav and anchor tags) 
+    don't stick to corners, height is responsive so padding also should be responsive*/
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(238, 164, 80);
+    text-transform: uppercase; /*Transforms letter to uppercase, lowercase etc*/
+}
+
+.menu-btn {
+    width: 3rem;
+    height: 3rem;
+    display: flex; /*generally span elements are inline so we turn the button display to flex which makes them
+    block elements by default*/
+    flex-direction: column; /*column to bring the spans in a column one after the other*/
+    justify-content: space-around; /*to make spaces between the spans*/
+    display: none;
+}
+
+.menu-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+
+#main-header ul { /*combinator*/
+    list-style: none;
+    display: flex; /*they are positioned next to each other*/
+    /*To make some space between two anchor tags we need to make sure there should be no default 
+    margin or padding*/
+    margin: 0;
+    padding: 0;
+}
+
+#main-header li{
+    margin: 0 1rem; /*we add top,botm: 0, left and Right: 16px to create some space beyond borders, this 
+    margin and anchor tag font-size should relate because we are fixing that*/
+}
+
+#main-header nav a {
+    color: rgb(185 ,131, 41);
+    font-size: 1.5rem; /*Asuuming default font size would 16px*/
+}
+
+#main-header nav a:hover {
+    color: rgb(228, 163, 44); 
+}
+
+#side-drawer {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(29, 26, 27);
+    position: fixed; /*similar to overlaying effect */
+    top: 0;
+    left: 0%;
+    display: none;
+}
+
+#side-drawer:target {
+    display: block; /*this is a target selector to make display block (solution to scroll to)*/
+}
+
+#side-drawer header {
+        height: 5rem; /*we generally use padding to maintain size but here we are using height,
+        we are setting a dynamic unit so that it satisfies user requirement (5rem=5*users sets his own font*/
+        display: flex; /*to arrange the items inside elemets (flex : 2 different elemets)*/
+        justify-content: flex-end; /*we use this to add space between 2 diff elements*/
+        align-items: center; /*bringing elements to a center */
+        background-color: rgb(29, 26, 24);
+        padding: 0 5%; /*we add this to create some space so that our elements(nav and anchor tags) 
+        don't stick to corners, height is responsive so padding also should be responsive*/
+}
+
+#side-drawer ul{
+    list-style: none;
+    margin: 0;
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#side-drawer li {
+    margin: 1rem 0;
+}
+
+#side-drawer a {
+    color: rgb(253, 239, 213);
+    font-size: 2rem;
+}
+
+main h1 {
+    text-align: center; /*To align the text to center*/
+    color: rgb(238, 164, 80);
+    font-size: 3rem;
+}
+
+#latest-products {
+    width: 80%; /*Limit the space that this section will occupy, because the content
+    will only be in center and it will not occupy more than 80%*/
+    margin: 2rem auto; /*we just add some margin to top,btm to create some space between <h1> and
+    we add auto to left,right to just center the content(another way other than text-align*/
+    /*Point to note is that it will fail if the image styling(some to left margin, some padding) is off we can change that later*/
+}
+/*For 1-D layout it is best to use flexbox but 2-D layout it is best to use Grid*/
+
+#latest-products ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*How many columns out grid should contain and what part of the existing space
+    should occupied by our columsns (if your total width is 800px or 100% you can add 400px,400px for
+    each column or 1fr 1fr (1:1)*/
+    gap: 1rem; /*to add space between columns*/
+    margin: 0;
+    padding: 0; /*if you remove margin and padding you can see some margin to left by default
+    to remove and make the section elements to align center we do this*/
+    list-style: none;
+}
+
+.food-item {
+    background-color: rgb(228, 206, 182);
+    border-radius: 6px; /*this makes the rounded corners all sides, if it only does on bottom you can overcome this with overflo:hidden;
+    making boder radius dynamic often leads to unwanted things*/
+    overflow: hidden; /*it adjusts elements inside elements to the predefined layouts(fills the cornors*/
+}
+
+.food-item img {
+    height: 15rem; /*setting the height*/
+    /*Always check for the image sizes before you proceed one img might occupy more space that other
+    sometimes it happens because the img you download might have diff resolutions*/
+    width: 100%; /*to fill the enite width available*/
+    object-fit: cover; /*to perfectly fit the image in the given space i.e to set the Aspect ratio*/
+}
+
+.food-item-content {
+    padding: 1rem; /*its better to add non semantics to for 2 diff elements which want same styling*/
+    text-align: center;
+}
+
+.food-item h2 {
+    margin: 0 0 1rem 0;
+}
+
+.btn {
+    background-color: rgb(228, 157, 44);
+    color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1.5rem;
+}
+
+.btn:hover {
+    background-color: rgb(221, 134, 34); 
+}
+
+/*In out project we should use max-width coz we are going from desktop to mobile version,
+Media queries should be at the end or after the actual element property you want to change with the 
+media query because of the cascading nature disrupts it */
+
+@media (max-width: 48rem) {
+    .menu-btn {
+        display: flex; /*to only show the hamburger icon in mobile view*/
+    }
+    
+    main h1 {
+        font-size: 1.5rem;
+    }
+
+    #latest-products ul {
+        grid-template-columns: 100%; /*if width goes below 769px then we need only one column instead of two*/
+    }
+
+    #main-header nav {
+        display: none;
+    }
+
+} 
